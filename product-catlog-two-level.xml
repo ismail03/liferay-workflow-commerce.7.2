@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<workflow-definition
+        xmlns="urn:liferay.com:liferay-workflow_7.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:liferay.com:liferay-workflow_7.0.0 http://www.liferay.com/dtd/liferay-workflow-definition_7_0_0.xsd">
+    <name>catlog-warehouse</name>
+    <version>1</version>
+    <state>
+        <name>created</name>
+        <metadata>
+            <![CDATA[{"xy":[100,50],"transitions":{"Catlog Review":{"bendpoints":[]}}}]]>
+        </metadata>
+        <initial>true</initial>
+        <transitions>
+            <transition>
+                <name>Catlog Review</name>
+                <target>catlog-review</target>
+            </transition>
+        </transitions>
+    </state>
+    <task>
+        <name>catlog-review</name>
+        <metadata><![CDATA[{"xy":[300,35],"transitions":{"Catlog Denied":{"bendpoints":[]}}}]]></metadata>
+        <assignments>
+            <roles>
+                <role>
+                    <role-type>regular</role-type>
+                    <name>Catalog Reviewer</name>
+                    <auto-create>true</auto-create>
+                </role>
+            </roles>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>Catlog Approved</name>
+                <target>warehouse-review</target>
+            </transition>
+            <transition>
+                <name>Catlog Denied</name>
+                <target>update</target>
+            </transition>
+        </transitions>
+    </task>
+    <state>
+        <name>approved</name>
+        <metadata>
+            <![CDATA[{"xy":[620,255],"terminal":true}]]>
+        </metadata>
+        <actions>
+            <action>
+                <name>approve</name>
+                <script>
+                    <![CDATA[Packages.com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil.updateStatus(Packages.com.liferay.portal.kernel.workflow.WorkflowConstants.toStatus("approved"), workflowContext);]]>
+                </script>
+                <script-language>javascript</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+        </actions>
+    </state>
+    <task>
+        <name>warehouse-review</name>
+        <metadata><![CDATA[{"xy":[340,240],"transitions":{"Warehouse Denied":{"xy":[-47,20],"bendpoints":[]}}}]]></metadata>
+        <assignments>
+            <roles>
+                <role>
+                    <role-type>regular</role-type>
+                    <name>Ware house Reviewer</name>
+                    <auto-create>true</auto-create>
+                </role>
+            </roles>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>Warehouse Approval</name>
+                <target>approved</target>
+            </transition>
+            <transition>
+                <name>Warehouse Denied</name>
+                <target>update</target>
+            </transition>
+        </transitions>
+    </task>
+    <task>
+        <name>update</name>
+        <metadata><![CDATA[{"xy":[560,35],"transitions":{"Resubmit":{"xy":[-10,-15],"bendpoints":[[471,43]]}}}]]></metadata>
+        <assignments>
+            <user/>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>Resubmit</name>
+                <target>catlog-review</target>
+            </transition>
+        </transitions>
+    </task>
+</workflow-definition>

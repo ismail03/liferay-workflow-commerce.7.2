@@ -1,0 +1,14 @@
+# 
+#  #
+# #
+Bundle-Name: product-api
+Bundle-SymbolicName: com.liferay.ismail.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.ismail.exception,\
+	com.liferay.ismail.model,\
+	com.liferay.ismail.service,\
+	com.liferay.ismail.service.persistence,\
+	com.liferay.ismail.constants
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../product-service/service.xml

@@ -1,0 +1,21 @@
+create table Product_Product (
+	mvccVersion LONG default 0 not null,
+	uuid_ VARCHAR(75) null,
+	productId LONG not null primary key,
+	productName VARCHAR(80) null,
+	numberOfProducts INTEGER,
+	attachment VARCHAR(512) null,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	urlTitle VARCHAR(75) null,
+	productTitleName VARCHAR(255) null,
+	productSummaryName TEXT null,
+	status INTEGER,
+	statusByUserId LONG,
+	statusByUserName VARCHAR(75) null,
+	statusDate DATE null
+);

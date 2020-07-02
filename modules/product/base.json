@@ -1,0 +1,62 @@
+{
+  "projectName": "Product",
+  "packageName" : "com.liferay.ismail",
+  "liferayVersion": "7.2",
+  "applications": [
+    {
+      "model"       : "Product",
+      "title"       : "Product Test",
+      "web"         : "true",
+      "asset": {
+        "assetTitleFieldName": "productTitleName",
+        "assetSummaryFieldName": "productSummaryName",
+        "categories": "false",
+        "discussion": "false",
+        "ratings": "false",
+        "tags": "false",
+        "relatedAssets": "false",
+        "fullContentFieldName": "productfullContent",
+        "workflow": "true",
+        "generateActivity": "true",
+        "trash":"false",
+        "advancedSearch": "true",
+        "exportExcel": "false"
+      },
+      "fieldsName" : "Products",
+      "fields": [
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary":true,
+          "name": "productId",
+          "title": "Product Id",
+          "showFieldInView": "false",
+          "required": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "productName",
+          "title": "Product Name",
+          "length": "80",
+          "showFieldInView": "true",
+          "required": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Integer",
+          "name": "numberOfProducts",
+          "title": "Number Of Products"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.DocumentLibrary",
+          "name": "attachment",
+          "title": "Product DocumentLibrary"
+        }
+      ],
+      "customValue" : {
+        "your_own_id" : "your_custom_value_for_template_here"
+      },
+      "replacements" : {
+        "original_string_to_be_replaced" : "replacement_string"
+      }
+    }
+  ]
+}

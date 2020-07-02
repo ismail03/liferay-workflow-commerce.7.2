@@ -1,0 +1,16 @@
+# 
+#   #
+# #
+Bundle-Name: product-service
+Bundle-SymbolicName: com.liferay.ismail.service
+Bundle-Version: 1.0.0
+Import-Package:\
+	!com.google.*,\
+	!org.checkerframework.* ,\
+	*
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+-includeresource:\
+	@guava-*.jar,\
+	@commons-lang3-*.jar

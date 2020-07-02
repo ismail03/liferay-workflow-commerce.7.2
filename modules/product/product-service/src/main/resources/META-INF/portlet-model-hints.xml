@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.ismail.model.Product">
+		<field name="mvccVersion" type="long" />
+		<field name="uuid" type="String" />
+		<field name="productId" type="long" />
+		<field name="productName" type="String">
+			<hint name="max-length">80</hint>
+		</field>
+		<field name="numberOfProducts" type="int" />
+		<field name="attachment" type="String">
+			<hint name="display-width">60</hint>
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="urlTitle" type="String" />
+		<field name="productTitleName" type="String">
+			<hint name="display-width">200</hint>
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="productSummaryName" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint name="max-length">4001</hint>
+		</field>
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+</model-hints>

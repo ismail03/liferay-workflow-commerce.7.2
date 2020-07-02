@@ -1,0 +1,13 @@
+create index IX_28C8B8BC on Product_Product (attachment[$COLUMN_LENGTH:512$]);
+create index IX_5F1F3589 on Product_Product (companyId, status);
+create index IX_E3C260C3 on Product_Product (companyId, userId, status);
+create index IX_158566CB on Product_Product (groupId, status);
+create unique index IX_4F697182 on Product_Product (groupId, urlTitle[$COLUMN_LENGTH:75$]);
+create index IX_270C3005 on Product_Product (groupId, userId, status);
+create index IX_E8EE3E9D on Product_Product (numberOfProducts);
+create index IX_7EB9E085 on Product_Product (productName[$COLUMN_LENGTH:80$]);
+create unique index IX_46F34E02 on Product_Product (urlTitle[$COLUMN_LENGTH:75$]);
+create index IX_7CF2BAEB on Product_Product (userId, groupId);
+create index IX_E1DEAC85 on Product_Product (userId, status);
+create index IX_38F62C19 on Product_Product (uuid_[$COLUMN_LENGTH:75$], companyId);
+create unique index IX_861CE4DB on Product_Product (uuid_[$COLUMN_LENGTH:75$], groupId);
